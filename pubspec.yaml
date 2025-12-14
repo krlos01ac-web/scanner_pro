@@ -1,0 +1,64 @@
+name: scanner_plus
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.2
+
+environment:
+  sdk: ^3.10.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  camera: ^0.11.3
+  path_provider: ^2.1.5
+  google_mobile_ads: ^6.0.0
+  in_app_purchase: ^3.2.3
+  permission_handler: ^12.0.1
+  share_plus: ^12.0.1
+  pdf: ^3.11.3
+  image_editor_common: ^1.2.0
+  provider: ^6.1.5+1
+  image_cropper: ^11.0.0
+  # Adicionei a biblioteca de imagem aqui, que usamos para o filtro P&B
+  image: ^4.0.17 
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.13.1
+  # ✅ ADICIONADO: A ferramenta de splash precisa estar listada aqui
+  flutter_native_splash: ^2.3.10
+
+flutter:
+  uses-material-design: true
+
+# --- 1. CONFIGURAÇÃO DO ÍCONE ---
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/icon.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#0F172A"
+  adaptive_icon_foreground: "assets/icon/icon.png"
+
+# --- 2. CONFIGURAÇÃO DA TELA DE ABERTURA (SEPARADO DO ÍCONE) ---
+# Note que este bloco está colado na margem esquerda, igual ao de cima
+# ... resto do código ...
+
+# --- CONFIGURAÇÃO DA TELA DE ABERTURA ---
+flutter_native_splash:
+  color: "#000000"
+  # MUDANÇA AQUI: Usar o caminho da pasta assets é mais garantido
+  image: "assets/icon/icon.png"
+  
+  # Configuração específica para Android 12+ (que é chato com splash screens)
+  android_12:
+    color: "#000000"
+    icon_background_color: "#000000"
+    image: "assets/icon/icon.png"
+
+  # Para garantir que preencha a tela toda
+  fullscreen: true
